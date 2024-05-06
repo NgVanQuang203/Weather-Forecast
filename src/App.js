@@ -1,25 +1,98 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect, useState } from 'react';
+import Main from './components/Main';
+import Search from './components/Search';
+import axios from 'axios';
+import Loading from './Share/Loading';
+import Hourly from './components/Hourly';
+import ThisWeek from './components/ThisWeek';
+import Alerts from './components/Alerts';
+const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [data, setData] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+    const [ip, setIP] = useState(localStorage.getItem('IP'));
+    const [query, setQuery] = useState();
+
+    const handleSearchChange = (searchValue) => {
+        setQuery(searchValue);
+    };
+
+    useEffect(() => {
+        if (ip) return;
+        setIsLoading(true);
+        const getIpAdress = async () => {
+            try {
+                const response = await axios.get(
+                    'https://api.ipify.org?format=json'
+                );
+                localStorage.setItem('IP', response.data.ip);
+                setIP(response.data.ip);
+            } catch (error) {
+                console.log('Error API ', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        getIpAdress();
+    }, [ip]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        const fetchData = async (query) => {
+            try {
+                const response = await axios.get(
+                    `${apiUrl}?key=${apiKey}&q=${query}&days=6&aqi=yes&alerts=yes`
+                );
+                setData(response.data);
+            } catch (error) {
+                console.log('API Error', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        if (!ip) {
+            const getIpAdress = async () => {
+                try {
+                    const response = await axios.get(
+                        'https://api.ipify.org?format=json'
+                    );
+                    localStorage.setItem('IP', response.data.ip);
+                    setIP(response.data.ip);
+                    fetchData(response.data.ip);
+                } catch (error) {
+                    console.log('Error API ', error);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+            getIpAdress();
+        } else if (query) {
+            fetchData(query);
+        } else {
+            fetchData(ip);
+        }
+    }, [query, ip]);
+    return (
+        <div className=" max-w-[1000px]  mr-auto ml-auto px-3 pt-8 w-full">
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <>
+                    {data && (
+                        <Search
+                            onSearchChange={handleSearchChange}
+                            data={data}
+                        />
+                    )}
+                    {data && <Main data={data} />}
+                    {data && <Hourly data={data} />}
+                    {data && <ThisWeek data={data} />}
+                    {data && <Alerts data={data} />}
+                </>
+            )}
+        </div>
+    );
 }
 
 export default App;
