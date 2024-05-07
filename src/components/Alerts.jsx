@@ -15,7 +15,7 @@ const Alerts = ({ data }) => {
                             <div className="pl-4 flex  items-center">
                                 <PiWarningFill className="w-7 h-7 text-[#fe6464]" />
                             </div>
-                            <div className="pt-4 pb-4 flex justify-center flex-col">
+                            <div className="pt-4 pb-4 flex justify-center flex-col dark:text-[#000000]">
                                 <div className="text-lg font-medium">
                                     {item.headline}
                                 </div>
@@ -32,7 +32,7 @@ const Alerts = ({ data }) => {
                         <div className="pl-4 flex  items-center">
                             <AiFillSafetyCertificate className="w-7 h-7 text-[#00FF00]" />
                         </div>
-                        <div className="pt-4 pb-4 flex justify-center flex-col">
+                        <div className="pt-4 pb-4 flex justify-center flex-col dark:text-[#333333]">
                             <div className="text-lg font-medium">
                                 Weather Update: Stable Conditions with No
                                 Natural Disasters Expected
