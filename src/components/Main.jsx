@@ -59,29 +59,31 @@ const Main = ({ data }) => {
                                     °
                                 </span>{' '}
                             </p>
-                            <div className="ssm:block hidden">
+                            <div className="ssm:block hidden dark:text-[#CBCBCB]">
                                 <p className=" text-xl ">
                                     {data?.current.condition.text}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="flex-grow flex-shrink-0 basis-full text-center -mt-4 mb-4 ssm:hidden">
-                        <p className="text-lg font-normal text-[#445353]">
+                    <div className="flex-grow flex-shrink-0 basis-full text-center text-[#445353] dark:text-[#CBCBCB]  -mt-4 mb-4 ssm:hidden">
+                        <p className="text-lg font-normal ">
                             {data?.current.condition.text}
                         </p>
                     </div>
-                    <div className="flex flex-grow-0 flex-shrink lg:basis-[40%] md:basis-[40%] basis-full flex-row flex-wrap">
+                    <div className="flex flex-grow-0 flex-shrink  lg:basis-[40%] md:basis-[40%] basis-full flex-row flex-wrap
+                    
+                    ">
                         <div
                             className="flex-grow-0 flex-shrink md:basis-[50%] md:pb-0 md:items-end
                             ssm:items-start ssm:basis-1/3  basis-[50%] items-end pb-4 ssm:pt-4 flex flex-col flex-nowrap"
                         >
                             <div className="md:pb-4 md:pt-4 flex-initial items-center ssm:text-left ssm:pb-2 ssm:pt-2 flex">
-                                <div className="bg-gray-200 p-3 rounded-full md:p-3">
+                                <div className="bg-gray-200 dark:bg-[#18448F] p-3 rounded-full md:p-3">
                                     <GoArrowDown className="w-6 h-6" />
                                 </div>
                                 <div className="ssm:justify-start ssm:flex-col pl-2 min-w-20">
-                                    <h4 className="font-medium md:text-xl text-[#445353] leading-5 whitespace-nowrap text-ellipsis max-w-full mb-1">
+                                    <h4 className="font-medium md:text-xl text-[#445353] dark:text-[#AFAFAF] leading-5 whitespace-nowrap text-ellipsis max-w-full mb-1">
                                         Min
                                     </h4>
                                     <h3 className="md:text-4xl font-bold">
@@ -101,14 +103,14 @@ const Main = ({ data }) => {
                             ssm:items-start basis-[50%] items-start ssm:basis-1/3 pb-4 ssm:pt-4 flex flex-col flex-nowrap"
                         >
                             <div className="md:pb-4 md:pt-4 flex-initial items-center ssm:text-left ssm:pb-2 ssm:pt-2 flex">
-                                <div className="bg-gray-200 p-3 rounded-full md:p-3">
+                                <div className="bg-gray-200 dark:bg-[#18448F] p-3 rounded-full md:p-3">
                                     <GoArrowUp className="w-6 h-6" />
                                 </div>
                                 <div className="ssm:justify-start ssm:flex-col pl-2 min-w-20">
-                                    <h4 className="font-medium md:text-xl text-[#445353] leading-5 whitespace-nowrap text-ellipsis max-w-full mb-1">
+                                    <h4 className="font-medium md:text-xl text-[#445353] dark:text-[#AFAFAF] leading-5 whitespace-nowrap text-ellipsis max-w-full mb-1">
                                         Max
                                     </h4>
-                                    <h3 className="md:text-4xl font-bold">
+                                    <h3 className="md:text-4xl  font-bold">
                                         {Math.floor(
                                             data?.forecast.forecastday[0].day
                                                 .maxtemp_c
@@ -130,7 +132,7 @@ const Main = ({ data }) => {
                 </div>
             </div>
             {/* ForeCast Current detail */}
-            <div className="flex flex-wrap mb-8">
+            <div className="flex flex-wrap mb-8 ">
                 {/* Chance of rain */}
                 <div className="currentDay mb-[2px] mr-0 ssm:mr-1 ssm:mb-4 md:mr-8">
                     <div className="md:pt-4 md:pb-4 pt-2 pb-2 flex">
@@ -138,7 +140,7 @@ const Main = ({ data }) => {
                             <IoRainy className="text-[#83b4cf] w-6 h-6" />
                         </div>
                         <div className="flex justify-between flex-grow  ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Chance of rain
                             </h4>
                             <h3 className="font-bold md:text-xl text">
@@ -159,7 +161,7 @@ const Main = ({ data }) => {
                             <LuWind className="text-[#ADD8E6] w-6 h-6" />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Wind
                             </h4>
                             <h3 className="font-bold md:text-xl text">
@@ -177,7 +179,7 @@ const Main = ({ data }) => {
                             <WiSunrise className="text-[#FFA500] w-6 h-6" />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Sunrise
                             </h4>
                             <h3 className="font-bold md:text-xl text">
@@ -194,7 +196,7 @@ const Main = ({ data }) => {
                             <TbSunset2 className="text-[#FF4500] w-6 h-6" />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Sunset
                             </h4>
                             <h3 className="font-bold md:text-xl text">
@@ -214,7 +216,7 @@ const Main = ({ data }) => {
                             />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 UV Index
                             </h4>
                             <h3
@@ -241,7 +243,7 @@ const Main = ({ data }) => {
                             />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Pressure
                             </h4>
                             <h3
@@ -273,7 +275,7 @@ const Main = ({ data }) => {
                             />
                         </div>
                         <div className="flex justify-between flex-grow ssm:flex-col pl-[10px]">
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Humidity
                             </h4>
                             <h3
@@ -310,7 +312,7 @@ const Main = ({ data }) => {
                             }}
                             className="flex justify-between flex-grow ssm:flex-col pl-[10px]"
                         >
-                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap text-[#6c7b7b]">
+                            <h4 className="mb-1 text-ellipsis max-w-full whitespace-nowrap dark:text-[#AFAFAF] text-[#6c7b7b]">
                                 Gusts
                             </h4>
                             <h3 className="font-bold md:text-xl text">

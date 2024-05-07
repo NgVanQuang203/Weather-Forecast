@@ -43,15 +43,15 @@ const ThisWeek = ({ data }) => {
                 <h2 className="text-2xl font-semibold mt-5 mb-5">This Week</h2>
                 <button
                     onClick={() => setIsOpenMenu(!is_OpenMenu)}
-                    className={`outline-none w-9 h-9 bg-gray-200 rounded-full 
-                    flex justify-center items-center border-2 hover:border-[#077187] ${
-                        is_OpenMenu ? 'border-[3px] border-[#077187]' : ''
-                    }`}
+                    className={`outline-none w-9 h-9 bg-gray-200 rounded-full dark:bg-[#3362AB3D] dark:border-0
+                    dark:hover:border-2
+                    flex justify-center items-center border-2 hover:border-[#077187] dark:hover:border-[#077187]
+                     ${is_OpenMenu ? 'border-[3px] border-[#077187]' : ''} `}
                 >
                     <svg
                         className={`${
                             is_OpenMenu ? 'block' : 'hidden'
-                        } transition-all duration-300  cq ___12fm75w f1w7gpdv fez10in fg4l7m0`}
+                        } dark:text-[#f6f6f6] transition-all duration-300  cq ___12fm75w f1w7gpdv fez10in fg4l7m0`}
                         color="#445353"
                         fill="currentColor"
                         aria-hidden="true"
@@ -68,7 +68,7 @@ const ThisWeek = ({ data }) => {
                     <svg
                         className={`${
                             is_OpenMenu ? 'hidden' : 'block'
-                        } transition-all duration-300 cq ___12fm75w f1w7gpdv fez10in fg4l7m0`}
+                        } transition-all dark:text-[#f6f6f6] duration-300 cq ___12fm75w f1w7gpdv fez10in fg4l7m0`}
                         color="#445353"
                         fill="currentColor"
                         aria-hidden="true"
@@ -110,9 +110,9 @@ const ThisWeek = ({ data }) => {
                                     (index + 1) % 3 === 0
                                         ? 'lg:mr-0'
                                         : 'lg:mr-3'
-                                } transition-all duration-700 ease-in-out relative`}
+                                } transition-all duration-700 ease-in-out relative `}
                             >
-                                <div className="bg-gray-200 rounded-xl">
+                                <div className="bg-gray-200 dark:dark:bg-[#3362AB3D] rounded-xl">
                                     <div className="flex ">
                                         <div className="flex-grow-0 flex-shrink basis-[40%]">
                                             <span className="max-w-full">
@@ -128,7 +128,9 @@ const ThisWeek = ({ data }) => {
                                                 className=" flex-grow ssm:flex-shrink-0 flex-shrink ssm:basis-full basis-[40%] 
                                                 text-left text-[#445353] "
                                             >
-                                                <div className="text-left font-semibold mt-2 flex items-center justify-between">
+                                                {/* Day */}
+                                                <div className="text-left font-semibold mt-2 flex items-center justify-between dark:text-[#CBCBCB]">
+                                                
                                                     {getDayofWeek.day}
                                                     <span className="top-2 right-2 absolute">
                                                         <button
@@ -145,14 +147,15 @@ const ThisWeek = ({ data }) => {
                                                                     : ''
                                                             } detail-container outline-none w-8 h-8 border-2
                                                                  flex justify-center items-center 
-                                                                 rounded-full hover:border-[#077187]`}
+                                                                 rounded-full hover:border-[#077187]
+                                                                dark:border-0 dark:hover:border-2  dark:hover:border-[#077187]`}
                                                         >
                                                             <IoInformationCircleOutline className="w-6 h-6" />
                                                         </button>
                                                     </span>
                                                 </div>
 
-                                                <span className="text-xs">
+                                                <span className="text-xs uppercase dark:text-[#AFAFAF]">
                                                     {getDayofWeek.date}{' '}
                                                     {getDayofWeek.month}
                                                 </span>
@@ -163,7 +166,7 @@ const ThisWeek = ({ data }) => {
                                                         item.day.mintemp_c
                                                     )}
                                                     °
-                                                    <span className="text-xs font-medium w-full flex">
+                                                    <span className="text-xs font-medium w-full flex dark:text-[#CBCBCB]">
                                                         min
                                                     </span>
                                                 </p>
@@ -172,7 +175,7 @@ const ThisWeek = ({ data }) => {
                                                         item.day.maxtemp_c
                                                     )}
                                                     °
-                                                    <span className="text-xs font-medium w-full flex">
+                                                    <span className="text-xs font-medium w-full flex dark:text-[#CBCBCB]">
                                                         max
                                                     </span>
                                                 </p>
@@ -182,15 +185,13 @@ const ThisWeek = ({ data }) => {
                                 </div>
                                 {visibleIndex === index && (
                                     <div
-                                        className={`bg-white detail-container transition-all duration-500 ease-in-out rounded-md z-50 shadow-lg w-52 absolute top-11 ${
+                                        className={`bg-white dark:bg-[#021e3e] detail-container transition-all duration-500 ease-in-out rounded-md z-50 shadow-lg w-52 absolute top-11 ${
                                             (index + 1) % 2 !== 0
                                                 ? '-right-5'
                                                 : 'right-3'
                                         }  md:right-3`}
                                     >
-                                        <ul
-                                            className="list-none flex flex-col flex-nowrap"
-                                        >
+                                        <ul className="list-none flex flex-col flex-nowrap ">
                                             <li className="flex p-3 flex-row justify-between items-center">
                                                 <span className="flex font-semibold items-center">
                                                     <PiWindLight className="w-5 h-5 mr-2" />

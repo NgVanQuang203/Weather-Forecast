@@ -32,7 +32,7 @@ const Hourly = ({ data }) => {
                         return (
                             <div style={{marginRight: (index + 1) % 8 === 0 ? '0px' : ''}}
                                 key={index}
-                                className={`hourly bg-gray-200 rounded-xl   ${
+                                className={`hourly bg-gray-200 dark:bg-[#3362AB3D] rounded-xl   ${
                                     (index + 1) % itemPerRow !== 0
                                         ? 'mr-[6px] md:mr-3'
                                         : 'mr-0 ssm:mr-[6px] md:mr-3'
@@ -42,7 +42,7 @@ const Hourly = ({ data }) => {
                                     <div className="mt-4">
                                         <div className="mb-4">
                                             <div className="text-center">
-                                                <p className="text-[16px] mb-1 text-[#445353]">
+                                                <p className="text-[16px] mb-1 text-[#445353] dark:text-[#CBCBCB]">
                                                     {entryTime.toLocaleTimeString(
                                                         'en-US',
                                                         options
