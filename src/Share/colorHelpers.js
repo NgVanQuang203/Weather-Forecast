@@ -56,9 +56,9 @@ export const getTempsColor = (temp) => {
     } else if (temp < 15) {
         return '#90EE90';
     } else if (temp <= 20) {
-        return '#FFFF00';
-    } else if (temp <= 25) {
         return '#AACCFF';
+    } else if (temp <= 25) {
+        return '#00BFFF';
     } else if (temp <= 30) {
         return '#FFA500';
     } else if (temp <= 35) {
