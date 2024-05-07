@@ -130,7 +130,6 @@ const ThisWeek = ({ data }) => {
                                             >
                                                 {/* Day */}
                                                 <div className="text-left font-semibold mt-2 flex items-center justify-between dark:text-[#CBCBCB]">
-                                                
                                                     {getDayofWeek.day}
                                                     <span className="top-2 right-2 absolute">
                                                         <button
@@ -281,7 +280,7 @@ const ThisWeek = ({ data }) => {
                             is_OpenMenu ? '' : 'hidden'
                         } border-spacing-0 min-w-full transition-all duration-700 ease-in`}
                     >
-                        <thead className="bg-[#f6f6f7] z-[1] ">
+                        <thead className="bg-[#f6f6f7] dark:bg-[#18448F] z-[1] ">
                             <tr className="">
                                 <th className="border-b  border-b-[#d8d8d9] align-top pt-4 pb-4 text-lg top-0 sticky pr-4 pl-4 whitespace-nowrap text-left font-medium">
                                     Day
@@ -314,10 +313,13 @@ const ThisWeek = ({ data }) => {
                                 }
 
                                 return (
-                                    <tr key={index}>
+                                    <tr
+                                        className="dark:bg-[#18448F] hover:bg-[#f6f6f7] dark:hover:bg-[#276ACC]  border-b border-b-[#d8d8d9] dark:border-b-[#ffffff1e] last:border-b-0"
+                                        key={index}
+                                    >
                                         <td
                                             key={index}
-                                            className="border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap text-left font-medium"
+                                            className=" align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap text-left font-medium"
                                         >
                                             <div className="flex items-center text-[#2e3535]">
                                                 <span className="md:block hidden">
@@ -327,17 +329,17 @@ const ThisWeek = ({ data }) => {
                                                         alt=""
                                                     />
                                                 </span>
-                                                <span className="md:ml-2">
+                                                <span className="md:ml-2 dark:text-[#CBCBCB]">
                                                     {getDayofWeek.day}
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
+                                        <td className=" align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
                                             <span>
                                                 {item.day.daily_chance_of_rain}%
                                             </span>
                                         </td>
-                                        <td className="border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
+                                        <td className=" align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
                                             <span
                                                 style={{
                                                     color: getHumidityColor(
@@ -350,7 +352,7 @@ const ThisWeek = ({ data }) => {
                                                 {item.day.avghumidity}%
                                             </span>
                                         </td>
-                                        <td className="border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
+                                        <td className=" align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right text-center font-medium">
                                             <span
                                                 style={{
                                                     color: getUVColor(
@@ -362,7 +364,7 @@ const ThisWeek = ({ data }) => {
                                             </span>
                                         </td>
                                         <td
-                                            className={` border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right font-medium`}
+                                            className={`  align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right font-medium`}
                                         >
                                             <span
                                                 style={{
@@ -378,7 +380,7 @@ const ThisWeek = ({ data }) => {
                                             </span>
                                         </td>
                                         <td
-                                            className={` border-b border-b-[#d8d8d9] align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right font-medium`}
+                                            className={` align-top pt-4 pb-4 text-sm top-0 sticky pr-4 pl-4 whitespace-nowrap ssm:text-right font-medium`}
                                         >
                                             <span
                                                 style={{

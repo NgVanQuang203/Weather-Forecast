@@ -13,19 +13,23 @@ function App() {
     const [isLoading, setIsLoading] = useState(false);
     const [ip, setIP] = useState(localStorage.getItem('IP'));
     const [query, setQuery] = useState();
-    const [isDarkMode, setIsDarkMode] = useState(false)
+    const [isDarkMode, setIsDarkMode] = useState(
+        localStorage.getItem('darkMode') === 'true'
+    );
 
     const handleSearchChange = (searchValue) => {
         setQuery(searchValue);
     };
 
-    useEffect(() =>{
+    useEffect(() => {
         document.body.classList.toggle('dark', isDarkMode);
-    }, [isDarkMode])
+        console.log(isDarkMode);
+    }, [isDarkMode]);
 
-    const handleDarkMode = () =>{
+    const handleDarkMode = () => {
+        localStorage.setItem('darkMode', !isDarkMode);
         setIsDarkMode(!isDarkMode);
-    }
+    };
 
     useEffect(() => {
         if (ip) return;
@@ -90,7 +94,7 @@ function App() {
                 <div className=" max-w-[1000px]  mr-auto ml-auto px-3 pt-8 w-full">
                     {data && (
                         <Search
-                            onToggleDarkMode = {handleDarkMode}
+                            onToggleDarkMode={handleDarkMode}
                             onSearchChange={handleSearchChange}
                             data={data}
                         />

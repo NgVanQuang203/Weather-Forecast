@@ -16,11 +16,12 @@ const Search = ({ data, onSearchChange, onToggleDarkMode }) => {
     const [isCheck, setIsCheck] = useState(false);
     const menuRef = useRef();
 
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(localStorage.getItem('darkMode') === 'true');
 
     const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
-        onToggleDarkMode(!darkMode);
+        const newValueDarkMode = !darkMode;
+        setDarkMode(newValueDarkMode);
+        onToggleDarkMode(newValueDarkMode);
     };
 
     const handleKeyDown = (e) => {
@@ -47,7 +48,8 @@ const Search = ({ data, onSearchChange, onToggleDarkMode }) => {
         const handleKeyDown = (event) => {
             if (event.ctrlKey && event.key === 'k') {
                 setDarkMode(!darkMode);
-                onToggleDarkMode(!darkMode)
+
+                onToggleDarkMode(!darkMode);
                 // Thực hiện hành động của bạn tại đây
             }
         };
