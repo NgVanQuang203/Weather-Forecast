@@ -74,11 +74,11 @@ function App() {
         }
     }, [query, ip]);
     return (
-        <div className=" max-w-[1000px]  mr-auto ml-auto px-3 pt-8 w-full">
+        <div className="flex justify-center items-center min-h-screen">
             {isLoading ? (
                 <Loading />
             ) : (
-                <>
+                <div className=" max-w-[1000px]  mr-auto ml-auto px-3 pt-8 w-full">
                     {data && (
                         <Search
                             onSearchChange={handleSearchChange}
@@ -89,7 +89,7 @@ function App() {
                     {data && <Hourly data={data} />}
                     {data && <ThisWeek data={data} />}
                     {data && <Alerts data={data} />}
-                </>
+                </div>
             )}
         </div>
     );
